@@ -46,3 +46,12 @@ Route::get('/role', function(){
 Route::get('/rate-controller', 'ratingController@inputRate');
 Route::post('saveRate', 'ratingController@saveRate');
 Route::post('displayRate', 'ratingController@displayRate')->name('displayRate');
+
+
+    //Student-Login-Routes
+Route::get('student-register', 'StudentController@studentRegister')->name('student-register');
+Route::post('student-register-request', 'StudentController@studentRegisterRequest');
+
+Route::get('student-login', 'StudentController@studentLogin')->name('student-login');
+Route::post('student-login-request', 'StudentController@studentLoginRequest');
+
