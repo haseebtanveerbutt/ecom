@@ -6,6 +6,11 @@
             <div class="login_wrapper">
                 <div class="animate form login_form">
                     <section class="login_content">
+                        @if (session('message'))
+                            <div class="alert alert-danger">
+                                {{ session('message') }}
+                            </div>
+                        @endif
                         <form action="{{ URL::to('') }}/student-login-request " method="post">
                             @csrf
                             <h1>Login Form</h1>

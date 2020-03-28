@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\category;
 
-class categoriesController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class categoriesController extends Controller
      */
     public function index()
     {
-        //
+       $data = new category();
+       $categoryData = $data->all();
+       return view('admin.category.display_category', compact('categoryData'));
     }
 
     /**
@@ -23,7 +26,7 @@ class categoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.add_category');
     }
 
     /**
@@ -34,7 +37,10 @@ class categoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data =  new category();
+        $data->name = $request->input('name');
+        $data->save();
+        return redirect()->back()->with(['msg' => 'Category Addedd']);
     }
 
     /**

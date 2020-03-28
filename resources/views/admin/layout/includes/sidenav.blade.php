@@ -12,7 +12,7 @@
                 </a>
                 <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{URL('product.index')}}">Products</a></li>
+                    <li><a href="{{URL('product/index')}}">Products</a></li>
                     <li><a href="{{URL('admin/product/create')}}">Add Product</a></li>
                 </ul>
             </li>
@@ -23,7 +23,20 @@
                 </a>
                 <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{URL('category.index')}}">Add Category</a></li>
+                    <li><a href="{{Route('category.create')}}">Add Category</a></li>
+                </ul>
+                <ul>
+                    <li><a href="{{Route('category.index')}}">Categories</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#">
+                    <i class="glyphicon glyphicon-list"></i> Quiz
+                    <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                    <li><a href="{{Route('quiz.index')}}">Add Quiz</a></li>
                 </ul>
             </li>
             <li class="submenu">

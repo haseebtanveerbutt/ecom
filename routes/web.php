@@ -11,37 +11,34 @@ use App\role;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/', 'FrontController@index');
-Route::get('/shirts', 'FrontController@shirts');
+Route::get('/', 'FrontController@index')->name('studentHome');
+Route::get('/shirts', 'FrontController@shirts')->name('shirts');
 Route::get('shirt', 'FrontController@shirt');
 
 Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+
     Route::get('/',function(){
         return view('admin.index');
     });
-
     Route::resource('/product', 'productsController');
-    Route::resource('/category', 'categoriesController');
+    Route::resource('/category', 'CategoryController');
+    Route::resource('/quiz', 'QuizController');
 });
 
 Route::get('rate', 'FrontController@rate');
 
-Route::get('/role', function(){
-    $result = app\role::find(1)->users;
-    echo $result;
-    dd();
-});
+// Route::get('/role', function(){
+//     $result = app\role::find(1)->users;
+//     echo $result;
+//     dd();
+// });
     // Rating Controller 
 Route::get('/rate-controller', 'ratingController@inputRate');
 Route::post('saveRate', 'ratingController@saveRate');

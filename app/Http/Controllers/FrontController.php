@@ -19,6 +19,8 @@ class FrontController extends Controller
         {
             $totalRating += $rObj->rating_number;
         }
+        
+       
         $totalRaters = $index + 1;
         $averageRating = ceil($totalRating / $totalRaters);
         return view('front.home', ['shirts'=>$shirts, 'averageRating'=>$averageRating]);

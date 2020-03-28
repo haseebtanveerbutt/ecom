@@ -26,7 +26,7 @@ class StudentController extends Controller
         $studentData->Contact_no= $request->contact_no;
 
         $studentData->save();
-        return 'ok';
+        return redirect()->route('student-login');
 
     }
 
@@ -42,9 +42,10 @@ class StudentController extends Controller
         $user_name = Student::where('Name'  , '=', $name )->first();
         $user_password = Student::where('Password'  , '=', $password )->first();
         if (!($user_name && $user_password)) {
-            return response()->json(['success'=>false, 'message' => 'Login Fail, please check email id and password']);
+            return redirect()->back()->with(['success'=>false, 'message' => 'Login Fail, please check User Name and password']);
         }
-            return response()->json(['success'=>true,'message'=>'success']);
+            // return response()->json(['success'=>true,'message'=>'success']);
+        return redirect()->route('studentHome');
     }
 
     
