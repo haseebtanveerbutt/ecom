@@ -36,7 +36,7 @@
                 </a>
                 <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{Route('quiz.index')}}">Add Quiz</a></li>
+                    <li><a href="{{Route('quiz.create')}}">Add Quiz</a></li>
                 </ul>
             </li>
             <li class="submenu">

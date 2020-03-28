@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\QuizQuestion;
-use App\category;
 
-class QuizController extends Controller
+class OptionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $questions = QuizQuestion::all();
-        return view('admin.quiz.index', compact('questions'));
-      
+        //
     }
 
     /**
@@ -27,8 +23,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        $categories = category::all()->pluck('name', 'id');
-        return view('admin.quiz.add_quiz', compact('categories'));
+        //
     }
 
     /**
@@ -39,11 +34,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        // exit;
-        $question = QuizQuestion::create($request->all());
-
-        return redirect()->route('quiz.index');
+        //
     }
 
     /**

@@ -9,7 +9,7 @@
         @endif
         @csrf
         <div class="form-group">
-        <label for="email">Name:</label>
+        <label for="email">Add Course Category</label>
         <input name="name" type="text" class="form-control" id="email">
         </div>
         

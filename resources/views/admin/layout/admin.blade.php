@@ -40,7 +40,7 @@
     </div>
 
 </div><!--/Page Content-->
-
+@yield('scripts')
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="{{asset('js/parsley.min.js')}}"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -65,6 +65,8 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.js"></script>
+
 @yield('js')
+
 </body>
 </html>

@@ -12,4 +12,9 @@ class category extends Model
 
         return $this->hasMany(Product::class);
     }
+
+    public function categoryQuestions()
+    {
+        return $this->hasMany(QuizQuestion::class, 'category_id', 'id');
+    }
 }
