@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Option;
 use Illuminate\Http\Request;
+use App\QuizQuestion;
 
 class OptionsController extends Controller
 {
@@ -13,7 +15,10 @@ class OptionsController extends Controller
      */
     public function index()
     {
-        //
+        
+        $options = Option::all();
+
+        return view('admin.option.index', compact('options'));
     }
 
     /**
@@ -23,7 +28,9 @@ class OptionsController extends Controller
      */
     public function create()
     {
-        //
+        $questions = QuizQuestion::all()->pluck('question_text', 'id');
+
+        return view('admin.option.create', compact('questions'));
     }
 
     /**
@@ -34,7 +41,9 @@ class OptionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $option = Option::create($request->all());
+
+        return redirect()->route('option.index');
     }
 
     /**

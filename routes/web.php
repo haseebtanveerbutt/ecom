@@ -30,7 +30,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::resource('/product', 'productsController');
     Route::resource('/category', 'CategoryController');
     Route::resource('/quiz', 'QuizController');
-    Route::resocuce('/option', 'OptionsController');
+    Route::resource('/option', 'OptionsController');
 });
 
 Route::get('rate', 'FrontController@rate');

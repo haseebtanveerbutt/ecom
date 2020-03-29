@@ -41,6 +41,16 @@
             </li>
             <li class="submenu">
                 <a href="#">
+                    <i class="glyphicon glyphicon-list"></i> Option
+                    <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                    <li><a href="{{Route('option.create')}}">Add Options</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#">
                     <i class="glyphicon glyphicon-list"></i> Orders
                     <span class="caret pull-right"></span>
                 </a>
