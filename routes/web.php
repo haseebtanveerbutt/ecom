@@ -31,6 +31,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::resource('/category', 'CategoryController');
     Route::resource('/quiz', 'QuizController');
     Route::resource('/option', 'OptionsController');
+    Route::resource('/tabuler', 'TabulerController');
 });
 
 Route::get('rate', 'FrontController@rate');
