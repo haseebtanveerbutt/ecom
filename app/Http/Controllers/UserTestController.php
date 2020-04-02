@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tabuler;
 
-class TabulerController extends Controller
+class UserTestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +23,7 @@ class TabulerController extends Controller
      */
     public function create()
     {
-       return view('admin.tabuler_input.create');
+        //
     }
 
     /**
@@ -35,28 +34,7 @@ class TabulerController extends Controller
      */
     public function store(Request $request)
     {
-          return $request;
-          dd();
-        // dd($request);
-        foreach ($request->file('name') as $index => $file) {
-            // get file info       
-            $fileName = $file->getClientOriginalName();
-            $file->move(public_path().'/images/', $fileName);
-
-            // $model->image_name = $request->image_name[$index];
-            // save data in model
-            $model = new Tabuler();
-            $model->title = $request->title[$index];
-            // $model->description = $fileName;
-            // $model->course_name = $fileName;
-            
-            $model->course_name = $request->course_name;
-            // validate model saving
-            $model->save();
-        }
-        
-        Session::flash('alert-success', 'Content added Successfully');
-        return redirect()->back();
+        //
     }
 
     /**

@@ -10,7 +10,11 @@ use App\role;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('employeTest', function(){
+    $empaloye = 'App\Role'::find(1)->employes;
+    dd($empaloye->toArray());
+    
+});
 
 Route::get('/', 'FrontController@index')->name('studentHome');
 Route::get('/shirts', 'FrontController@shirts')->name('shirts');
@@ -32,6 +36,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::resource('/quiz', 'QuizController');
     Route::resource('/option', 'OptionsController');
     Route::resource('/tabuler', 'TabulerController');
+    Route::resource('/user-test', 'UserTestController');
+    Route::resource('/add-competition', 'CompetitionController');
+
 });
 
 Route::get('rate', 'FrontController@rate');

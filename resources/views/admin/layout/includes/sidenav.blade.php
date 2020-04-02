@@ -61,6 +61,16 @@
             </li>
             <li class="submenu">
                 <a href="#">
+                    <i class="glyphicon glyphicon-list"></i> Competiton
+                    <span class="caret pull-right"></span>
+                </a>
+                <!-- Sub menu -->
+                <ul>
+                    <li><a href="{{Route('add-competition.create')}}">Add Competiton</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#">
                     <i class="glyphicon glyphicon-list"></i> Orders
                     <span class="caret pull-right"></span>
                 </a>
