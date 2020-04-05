@@ -11,6 +11,7 @@ class Role extends Model
     ];
 
     public function employes(){
-        $this->belongsToMany('App\Employe');
+        // return $this->belongsToMany('App\Employe');
+        return $this->belongsToMany('App\Employe', 'role_employe', 'role_id', 'employe_id');
     }
 }

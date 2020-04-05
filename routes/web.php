@@ -11,9 +11,14 @@ use App\role;
 |
 */
 Route::get('employeTest', function(){
-    $empaloye = 'App\Role'::find(1)->employes;
-    dd($empaloye->toArray());
-    
+    $empaloyes = 'App\Role'::find(1)->employes;
+    foreach($empaloyes as $emp){
+        echo $emp;
+        // echo '<pre>';
+        //     print_r($emp->toArray());
+        // echo '</pre>';
+    }
+    exit;
 });
 
 Route::get('/', 'FrontController@index')->name('studentHome');
