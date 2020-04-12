@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Account' => $baseDir . '/app/Account.php',
+    'App\\Bank' => $baseDir . '/app/Bank.php',
     'App\\Competition' => $baseDir . '/app/Competition.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Custom_Helpers\\ConstantHelper' => $baseDir . '/app/Custom_Helpers/ConstantHelper.php',

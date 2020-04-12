@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompetitionsTable extends Migration
+class CreateAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateCompetitionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('competitions', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('customer_name')->unique();
+            $table->integer('account_no')->unique();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateCompetitionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('competitions');
+        Schema::dropIfExists('accounts');
     }
 }

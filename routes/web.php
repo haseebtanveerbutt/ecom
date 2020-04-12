@@ -10,6 +10,13 @@ use App\role;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/bank-account', function(){
+    $data = 'App\Bank'::find(1)->accounts;
+    echo $data;
+    dd();
+});
+
 Route::get('employeTest', function(){
     $empaloyes = 'App\Role'::find(1)->employes;
     foreach($empaloyes as $emp){
@@ -20,6 +27,7 @@ Route::get('employeTest', function(){
     }
     exit;
 });
+
 
 Route::get('/', 'FrontController@index')->name('studentHome');
 Route::get('/shirts', 'FrontController@shirts')->name('shirts');
