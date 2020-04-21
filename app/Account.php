@@ -9,6 +9,6 @@ class Account extends Model
     protected $fillable = ['customer_name', 'account_no'];
 
     public function bank(){
-        return $this->hasOne('App\Bank');
+        return $this->belongsto('App\Bank');
     }
 }

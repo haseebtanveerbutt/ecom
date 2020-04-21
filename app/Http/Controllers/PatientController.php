@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\category;
+
 use Illuminate\Http\Request;
-use App\Product;
-class productsController extends Controller
+use App\Patient;
+use Hash;
+
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,10 @@ class productsController extends Controller
      */
     public function index()
     {
-        $products= product::all();
-        return view('admin.product.index', compact('products'));
+        $patient_data = new Patient;
+        $data_p = $patient_data->all();
+        
+        return view('patient.index', compact('data_p'));
     }
 
     /**
@@ -24,8 +28,7 @@ class productsController extends Controller
      */
     public function create()
     {
-        $categories = category::pluck('name','id');
-        return view('admin.product.create', compact('categories'));
+        return view('patient.create');
     }
 
     /**
@@ -36,27 +39,25 @@ class productsController extends Controller
      */
     public function store(Request $request)
     {
-        $formInput=$request->except('image');
-
-        $this->validate($request,[
-            'name' => 'required',
-            'description' => 'required',
-            'size' => 'required',
-            'price'=>'required',
-            'image' => 'image|mimes:png,jpg,jpeg'
-        ]);
-
-       
-       
-        $image = $request->image;
-        if($image){
-            $destination = 'upload/';
-            $imageName= $image->getClientOriginalName();
+        $patient_data = $request->except('image');
+        $this->validate($request,[ 
+        'name'=>'required']
+        );
+        $password = Hash::make($request->password);
+        $patient_data['password'] = $password;
+        $image= $request->image;
+        if($image)
+        {
+            $destination = 'patient_images/';
+            $imageName = $image->getClientOriginalName();
             $image->move($destination, $imageName);
-            $formInput['image']=$imageName;
+            $patient_data['image'] = $imageName;
+
         }
-         Product::create($formInput);
-        return redirect()->route('product.index');
+
+        Patient::create($patient_data);
+        return redirect()->route('patient-crud.index');
+        
     }
 
     /**
@@ -78,7 +79,8 @@ class productsController extends Controller
      */
     public function edit($id)
     {
-        
+        $data=Patient::find($id);
+        return view('patient.edit', compact('data'));
     }
 
     /**
@@ -90,7 +92,11 @@ class productsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $data = Patient::where('id', '=', $id)->first();
+        $data->update($request->all());
+        $data_p = $data->all();
+        return view('patient.index', compact('data_p'));
     }
 
     /**
@@ -101,6 +107,9 @@ class productsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Patient::find($id);
+        
+        $data->delete();
+        return redirect()->back();
     }
 }

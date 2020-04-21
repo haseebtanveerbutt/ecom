@@ -15,5 +15,12 @@
     $data = DB::table('user')->where('name','taha')->update(['email'=>'haseebbutt@gmail.com']);
 {{-- to avg,sum,max value --}}
     $data = DB::table('user')->avg('id'); or ->sum('id') or ->max('id');
-
-                                    {{-- JOINS  --}}
+                                    
+    $data = DB::table('user')->where('id', "=", 1)->first();
+{{-- where i want just name of id 3 --}}
+{{-- Value sirf 1 record hi show kerta hain, agr ap where ka use na b karain is, surat main pluck ka use karain --}}
+    $data = DB::table('user')->where('id', 1)->value('name');
+    {{-- to get all name from table --}}
+    $data = DB::table('user')->pluck('name');
+{{-- sepratly yh ccolums ko select ker ly ga, jaisy haseeb, pakistan then taha, pakistan  --}}
+    $data = DB::table('user')->select('name', country)->get();
