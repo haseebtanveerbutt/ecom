@@ -8,7 +8,8 @@ use App\Rate;
 class FrontController extends Controller
 {
     public function index()
-    {
+    {   
+        
         $shirts = product::all();
         // $data = new Rate();
         // $data->rating_number = $request->star;
