@@ -39,7 +39,7 @@ Route::get('employeTest', function(){
         echo "<br>";
     }
         
-    dd();
+    dd($tet);
 });
 
 
